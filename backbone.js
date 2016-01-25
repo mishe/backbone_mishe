@@ -305,7 +305,7 @@
         },
 
         undelegateEvents: function () {
-            if (this.$el) this.$el.off('.delegateEvents' + this.cid);
+            if (this.$el) this.$el.off('.delegateEvents' + this.cid||'');
             return this;
         },
 
