@@ -274,7 +274,7 @@
         },
 
         setElement: function (element) {
-            this.undelegateEvents();
+            // this.undelegateEvents();
             this._setElement(element);
             this.delegateEvents();
             return this;
@@ -305,7 +305,11 @@
         },
 
         undelegateEvents: function () {
-            if (this.$el) this.$el.off('.delegateEvents' + this.cid||'');
+            if (this.$el){
+                this.$el.off('.delegateEvents' + this.cid);
+            } else if (this.el){
+                $(this.el).off();
+            }
             return this;
         },
 
